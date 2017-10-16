@@ -10,15 +10,17 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 
 public class Runner extends Application{
-	//Group root;
+	
 	public static void main(String[] args) {
 		launch(args);
 	}
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		// create view
+		// create the root node to build the view on 
 		BorderPane root = new BorderPane();
+		
+		// create model, view, and controller
 		Model model = new Model();
 		View view = new View(root);
 		Controller controller = new Controller(model, view);
