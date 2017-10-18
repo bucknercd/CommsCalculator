@@ -49,7 +49,7 @@ public class View {
 		this.button = new Button("Calculate");
 		this.output = this.createLabel("The RX ...   ", "yellow", "RED");
 		
-		HBox row0 = createRow(this.rxSensitivity, "RX Sesitivity (dBm)  ");
+		HBox row0 = createRow(this.rxSensitivity, "RX Sensitivity (dBm)");
 		HBox row1 = createRow(this.distance, "Distance (km)          ");
 		HBox row2 = createRow(this.frequency, "Frequency (MHz)     ");
 		HBox row3 = createRow(this.txPower, "TX Power (Watts)    ");
