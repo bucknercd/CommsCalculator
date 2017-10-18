@@ -17,7 +17,6 @@ public class Controller implements EventHandler<ActionEvent>{
 		this.model = model;
 		
 		this.view.addListener(this);
-		this.model.getView(this.view);
 		this.button = this.view.getButton();
 	}
 	
@@ -25,13 +24,27 @@ public class Controller implements EventHandler<ActionEvent>{
 	public void handle(ActionEvent event) {
 		if (event.getSource() == this.button) {
 			System.out.println("Calculating ... ");
-			this.view.updateEIRP(this.model.calcEIRP());
-			this.view.updateFSL(this.model.calcFSL());
-			this.view.updateRSL(this.model.calcRSL());
-			this.view.updateOutput(this.model.calcResult());
-			
+			this.updateModel(this.model);
+			this.updateView(this.view);
 		}
-		
+	}
+	
+	public void updateModel(Model model) {
+		model.setRxSensitivity(this.view.getRxSensitivity());
+		model.setTxPower(this.view.getTxPower());
+		model.setTxGain(this.view.getTxGain());
+		model.setTxLoss(this.view.getTxLoss());
+		model.setRxGain(this.view.getRxGain());
+		model.setrxLoss(this.view.getRxLoss());
+		model.setDist(this.view.getDistance());
+		model.setFreq(this.view.getFrequency());
+	}
+	
+	public void updateView(View view) {
+		view.updateEIRP(this.model.calcEIRP());
+		view.updateFSL(this.model.calcFSL());
+		view.updateRSL(this.model.calcRSL());
+		view.updateOutput(this.model.calcResult());
 	}
 
 }
