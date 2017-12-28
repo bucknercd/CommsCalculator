@@ -23,7 +23,6 @@ public class Controller implements EventHandler<ActionEvent>{
 	@Override
 	public void handle(ActionEvent event) {
 		if (event.getSource() == this.button) {
-			System.out.println("Calculating ... ");
 			this.updateModel(this.model);
 			this.updateView(this.view);
 		}
